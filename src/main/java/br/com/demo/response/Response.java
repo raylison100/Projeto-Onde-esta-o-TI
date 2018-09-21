@@ -1,6 +1,9 @@
 package br.com.demo.response;
 
-public class Response {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Response <T> {
 
     private T data;
 
