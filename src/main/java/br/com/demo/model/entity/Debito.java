@@ -8,7 +8,7 @@ public class Debito {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne(mappedBy = "chamado", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "chamado", fetch = FetchType.LAZY)
     private Chamado chamado;
 
 

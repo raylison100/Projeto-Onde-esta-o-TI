@@ -29,8 +29,8 @@ public class Chamado {
     @Column(name = "atendente", nullable = false)
     private String atendente;
 
-    @OneToOne(mappedBy = "produto", fetch = FetchType.EAGER)
-    private Produto produto;
+    @OneToOne(mappedBy = "produtoID", fetch = FetchType.LAZY)
+    private String produtoID;
 
     @Column(name = "quantidade", nullable = false)
     private  int qtd;
