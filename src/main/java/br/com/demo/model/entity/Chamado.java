@@ -3,11 +3,12 @@ package br.com.demo.model.entity;
 import br.com.demo.model.enun.TipoDeChamado;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name="chamado")
-public class Chamado {
+public class Chamado implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +30,7 @@ public class Chamado {
     @Column(name = "atendente", nullable = false)
     private String atendente;
 
-    @OneToOne(mappedBy = "produtoID", fetch = FetchType.LAZY)
+    @Column(name = "produtoID", nullable = false)
     private String produtoID;
 
     @Column(name = "quantidade", nullable = false)
@@ -41,6 +42,9 @@ public class Chamado {
     @Column(name = "data", nullable = false)
     private LocalDateTime data;
 
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "debito_estoque_id")
+//    private Estoque estoque;
 
     public Chamado(){
 

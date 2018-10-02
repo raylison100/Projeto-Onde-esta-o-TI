@@ -1,26 +1,28 @@
 package br.com.demo.model.entity;
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
 
 @Entity
 @Table(name="estoque")
-public class Estoque {
+public class Estoque implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne(mappedBy = "produtoID", fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "produto_id")
     private Produto produto;
 
     @Column(name = "qtd", nullable = false)
     private long qtd;
 
-    @OneToMany(mappedBy = "debitoID", fetch = FetchType.LAZY)
-    private List<Debito> debitos;
+//    @OneToMany(mappedBy = "estoque", fetch = FetchType.LAZY)
+//    private Chamado chamado;
 
-    @OneToMany(mappedBy = "lancamentoID", fetch = FetchType.LAZY)
-    private List<Lançamento> lançamentos;
+ /*   @OneToMany(mappedBy = "estoque", fetch = FetchType.LAZY)
+    private Lançamento lançamento;*/
+
 
 }

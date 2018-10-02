@@ -2,7 +2,7 @@ package br.com.demo.model.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+
 
 @Entity
 @Table(name="categoria")
@@ -14,8 +14,9 @@ public class Categoria implements Serializable {
 
     @Column(name = "nome", nullable = false)
     private String nome;
-    @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<String> productosIDs;
+
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Produto produto;
 
 
     public Categoria(){}
